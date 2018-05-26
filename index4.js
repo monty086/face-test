@@ -33,7 +33,6 @@
     //     uploadImg(inputImg)
     // }
     let uploadImg = (img)=>{
-        console.dir(img)
         if(img.files.length===0){
             alert('请上传图片')
             return
@@ -43,14 +42,12 @@
             alert('上传的图片有误')
             return 
         }
-        console.dir(readF)
         readF.readAsDataURL(fileImg)
     }
     readF.onload = (e)=>{
         if(imgThis){
             stage.removeChild(imgThis)
         }
-        console.log(e.target.result);
         if(e.target.result){
              pressImg.src = e.target.result
              drawPhoto()
@@ -98,7 +95,6 @@
             contentType:false,
             processData:false,
             success:(json)=>{
-                console.log(json)
                 if(json&&json.faces.length!=0){
                     let face = json.faces[0].face_rectangle
                     elePos={
