@@ -62,17 +62,13 @@
        $('#loading-wrapper').fadeIn()
        new Promise ((res)=>{
             yasuo = new Compress('canvas')
-            if(yasuo){
-                res()
-            }
+            res()
        }).then(()=>{
             let data = yasuo.reduce('compressImg',0.1);
             pressImg.src=data
-       }).then(()=>{
             pressImg.loadOnce(function(){
                 AlloyImage(this).act('灰度处理').add(AlloyImage(this.width,this.height,'#aaa'),'叠加').replace(this)
             })
-       }).then(()=>{
             uploadFace()
        })
     }
