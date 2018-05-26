@@ -4,10 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>儿童节快乐</title>
     <link rel="stylesheet" href="css/index.css">
+    <style>
+        .loading-wrapper{ display:none; position: fixed;left: 0;top: 0;right: 0;bottom: 0;z-index: 10000;background: #fff ; opacity: .5 }
+        /* .loading-wrapper.show{display: block}
+        .loading-wrapper.hide{display: none} */
+        .loading-wrapper .loading-img{position: absolute;width: 34px;height: 34px;top: 50% ;left: 50%;margin-top: -17px;margin-left: -17px;text-align: center}
+    </style>
 </head>
 <body>
+    <div id="loading-wrapper" class="loading-wrapper"><img class="loading-img" src="./img/loading.gif"></div>
     <div class="main">
         <!-- 背景 -->
         <div class="bg">

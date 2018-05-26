@@ -62,6 +62,7 @@
             2. 绘制
             3. 提交到face++
         */
+       $('#loading-wrapper').fadeIn()
        new Promise ((res)=>{
             yasuo = new Compress('canvas')
             if(yasuo){
@@ -110,6 +111,7 @@
                     }
                     $('.upload-box').fadeIn()
                     drawFace()
+                    $('#loading-wrapper').fadeOut()
                 }
             },
             error:(error)=>{
@@ -181,14 +183,6 @@
         img.onload = function () {//图片加载完，再draw 和 toDataURL
             
         };
-        console.log(base64)
-
-
-        // let canvas = $('#stageCanvas')[0];
-        // let image = $('#downloadImg')[0]
-        // image.setAttribute('crossOrigin', 'anonymous');
-        // let data = canvas.toDataURL('image/png')
-        // console.log(data)
 
         $('#downloadImg').attr('src',base64)
         setTimeout(()=>{
@@ -196,5 +190,4 @@
             $('#downloadImg').attr('src',data)
         },200)
     }
-
 })()

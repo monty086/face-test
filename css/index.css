@@ -72,6 +72,12 @@ html,body,.main{
     top:85%
 }
 #downloadImg{
+    width: 288px;
+    height: 400px;
+    position: absolute;
+    left:45px;
+    top:121px;
+    z-index: 1000;
     opacity:0
 }
 
