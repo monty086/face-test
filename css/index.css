@@ -71,7 +71,7 @@ html,body,.main{
 .supertant .saveAs{
     top:85%
 }
-#downloadImg{
+/* #downloadImg{
     width: 288px;
     height: 400px;
     position: absolute;
@@ -79,5 +79,5 @@ html,body,.main{
     top:121px;
     z-index: 1000;
     opacity:0
-}
+} */
 

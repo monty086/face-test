@@ -159,48 +159,49 @@
             stage.swapChildren(bg,imgThis);
             stage.update()
 
-            toDataImg()
+            //toDataImg()
         },200)
     }
 
     $(document).on('touchend','.upload-box .close' , function(){
         $('.upload-box').fadeOut()
     })
-
-    let toDataImg = ()=>{
-
-        var canvas = document.getElementById("canvas"),//获取canvas
-            ctx = canvas.getContext("2d"), //对应的CanvasRenderingContext2D对象(画笔)
-            img = new Image();//创建新的图片对象
-           // base64 = '';//base64 
-        ctx.drawImage(img, 0, 0);
-        var base64 = canvas.toDataURL("image/png");
-        img.setAttribute("crossOrigin", 'Anonymous')
-        img.onload = function () {//图片加载完，再draw 和 toDataURL
-            
-        };
-
-        $('#downloadImg').attr('src',base64)
-        setTimeout(()=>{
-            data = yasuo.reduce('downloadImg',0.1)
-            $('#downloadImg').attr('src',data)
-        },200)
-    }
-
-    $.fn.longPress = function(fn) {
-        var timeout = undefined;
-        var $this = this;
-        for(var i = 0;i<$this.length;i++){
-            $this[i].addEventListener('touchstart', function(event) {
-                timeout = setTimeout(fn, 800);  //长按时间超过800ms，则执行传入的方法
-            }, false);
-            $this[i].addEventListener('touchend', function(event) {
-                clearTimeout(timeout);  //长按时间少于800ms，不会执行传入的方法
-            }, false);
-        }
-    }
-
-    $('#longEnter').longPress(function (){
-        console.log('保存图片成功')
+    $(document).on('touchend','.upload-box #longEnter' , function(){
+        $('.upload-box').fadeOut()
     })
+
+    // let toDataImg = ()=>{
+
+    //     var canvas = document.getElementById("canvas"),//获取canvas
+    //         ctx = canvas.getContext("2d"), //对应的CanvasRenderingContext2D对象(画笔)
+    //         img = new Image();//创建新的图片对象
+    //        // base64 = '';//base64 
+    //     ctx.drawImage(img, 0, 0);
+    //     var base64 = canvas.toDataURL("image/png");
+    //     img.setAttribute("crossOrigin", 'Anonymous')
+
+
+    //     $('#downloadImg').attr('src',base64)
+    //     setTimeout(()=>{
+    //         data = yasuo.reduce('downloadImg',0.1)
+    //         $('#downloadImg').attr('src',data)
+    //     },200)
+    // }
+
+    // $.fn.longPress = function(fn) {
+    //     var timeout = undefined;
+    //     var $this = this;
+    //     for(var i = 0;i<$this.length;i++){
+    //         $this[i].addEventListener('touchstart', function(event) {
+    //             timeout = setTimeout(fn, 800);  //长按时间超过800ms，则执行传入的方法
+    //         }, false);
+    //         $this[i].addEventListener('touchend', function(event) {
+    //             clearTimeout(timeout);  //长按时间少于800ms，不会执行传入的方法
+    //         }, false);
+    //     }
+    // }
+
+    // $('#longEnter').longPress(function (){
+    //     console.log('保存图片成功')
+    // })
 })()
