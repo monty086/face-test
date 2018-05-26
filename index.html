@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="main">
+        <!-- 背景 -->
+        <div class="bg">
+            <p class="upimg">上传你的自拍照试试</p>
+        </div>
+         <!-- 上传按钮 -->
+        <input type="file" class='upimg' name:'photo' id='inputImg'>
+        <!-- 照片合成文件 -->
+        <div class="upload-box">
+            <div class="supertant">
+               <div class="canvas-box">
+                    <canvas id='stageCanvas' width="750" height="1038" ></canvas>  
+                </div>  
+                <div class='close'></div>
+                <p class="upimg saveAs" >长按保存图片</p>
+            </div>
+            <img src="" alt="" id='downloadImg' >
+        </div> 
+    </div>
+
+    <div style='display: none'>
+        <canvas id='canvas'></canvas>
+        <img src="" alt="" id='compressImg' > 
+    </div>
+    
+</body>
+</html>
+<script src='js/jquery-1.8.0.min.js'></script>
+<!-- 操作canvas的一个js库 -->
+<script src='js/easeljs-0.8.2.min.js'></script>
+<!-- 人脸识别 -->
+<script src='js/interact.min.js'></script>
+<!-- 压缩图片 -->
+<script src='js/imgcompress.js'></script>
+<!-- 图片绘制 -->
+<script src='js/alloyimage-1.1.js'></script>
+<script src='index4.js'></script>

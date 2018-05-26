@@ -1,0 +1,77 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+html,body,.main{
+    width: 100%;
+    height: 100%;
+}
+.main .bg{
+    width: 100%;
+    height: 100%;
+    background: url('../img/bg-upload.png');
+    background-size: 100% 100%
+}
+.upimg{
+    width: 240px;
+    height: 46px;
+    position: absolute;
+    top:60%;
+    left:50%;
+    margin-left: -120px;
+    margin-top: -23px;
+    background: rgb(204, 35, 35);
+    text-align: center;
+    line-height: 46px;
+    color:white;
+    border-radius:4px
+}
+#inputImg{
+    opacity:0;
+}
+
+.upload-box{
+    display: none
+}
+
+.supertant{
+    width: 288px;
+    height: 400px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-left: -144px;
+    margin-top: -150px;
+    background: url('../img/supernatant.png') no-repeat;
+    background-size: 100% 100%;
+    z-index: 20;
+}
+
+.supertant .close{
+    width: 27px;
+    height: 49px;
+    position: absolute;
+    background: url('../img/close.png');
+    background-size: 100% 100%;
+    right:10px;
+    top:-40px;
+    z-index: 20;
+}
+
+.supertant .canvas-box{
+    margin: 20px;
+    overflow: hidden;
+    height: 280px;
+}
+.supertant .canvas-box canvas{
+    transform: scale(1.2);
+    width: 100%;
+}
+
+.supertant .saveAs{
+    top:85%
+}
+#downloadImg{
+    opacity:0
+}
+
