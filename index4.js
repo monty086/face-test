@@ -59,16 +59,21 @@
             2. 绘制
             3. 提交到face++
         */
-       $('#loading-wrapper').fadeIn()
        new Promise ((res)=>{
+            $('#loading-wrapper').fadeIn()
             yasuo = new Compress('canvas')
-            res()
+            setTimeout(()=>{
+                res()
+            })
        }).then(()=>{
             let data = yasuo.reduce('compressImg',0.1);
             pressImg.src=data
-            pressImg.loadOnce(function(){
-                AlloyImage(this).act('灰度处理').add(AlloyImage(this.width,this.height,'#aaa'),'叠加').replace(this)
+            return new Promise((res)=>{
+                pressImg.loadOnce(res)
             })
+       }).then(()=>{
+            AlloyImage(pressImg).act('灰度处理').add(AlloyImage(pressImg.width,pressImg.height,'#aaa'),'叠加').replace(pressImg)
+       }).then(()=>{
             uploadFace()
        })
     }
@@ -83,7 +88,6 @@
             formData.append('api_secret','-c5Ttwzd5kKTyhlGqX4fbCe8_BDU1frB');
             formData.append('image_file',blobData)
         }
-
         $.ajax({
             url:'https://api-cn.faceplusplus.com/facepp/v3/detect',
             data:formData,
@@ -126,6 +130,21 @@
         })
     }
 
+
+    let basetoBol=(url)=>{
+        let arr = url.split(',');
+        let mime = arr[0].match(/:(.*);/i)[1];
+        let n = arr[1].length;
+        let unit = new Uint8Array(n);
+        let atob = window.atob(arr[1])
+        while(n--){
+            unit[n]=atob.charCodeAt(n)
+        }
+        return new Blob([unit],{
+            type:mime
+        })
+    }
+
     let drawFace = ()=>{
         let url = pressImg.src;
         imgThis = new createjs.Bitmap(url);
@@ -159,15 +178,11 @@
         },200)
     }
 
-    $(document).on('touchend','.upload-box .close' , function(){
-        $('.upload-box').fadeOut()
-    })
-    $(document).on('touchend','.upload-box #longEnter' , function(){
+    $(document).on('touchend','.upload-box .close , #longEnter' , ()=>{
         $('.upload-box').fadeOut()
     })
 
     // let toDataImg = ()=>{
-
     //     var canvas = document.getElementById("canvas"),//获取canvas
     //         ctx = canvas.getContext("2d"), //对应的CanvasRenderingContext2D对象(画笔)
     //         img = new Image();//创建新的图片对象
